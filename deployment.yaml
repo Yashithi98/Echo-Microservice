@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-test-app
+spec:
+  selector:
+    matchLabels:
+     app: echomicroservice
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: echomicroservice
+    spec:
+      containers:
+        - name: echomicroservice
+          image: yashithi98/echomicroservice:echomicroservice
+          ports:
+          - containerPort: 8080
